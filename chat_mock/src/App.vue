@@ -59,6 +59,9 @@
 import messageHistory from './messageHistory'
 import chatParticipants from './chatProfiles'
 import availableColors from './colors'
+import axios from 'axios'
+
+
 export default {
   name: 'App',
   components: {
@@ -110,9 +113,28 @@ export default {
         text.length > 0 ? this.participants[this.participants.length - 1].id : ''
     },
     onMessageWasSent(message) {
-      //ここにAPICall登録
 
       this.messageList = [...this.messageList, Object.assign({}, message, {id: Math.random()})]
+      this.addSpreadSheet(message)
+    },
+    addSpreadSheet(message)
+    {
+      console.log(message)
+
+      // パラメータ
+      var param = {
+        id: "1",
+        comment: message.data.text,
+        tag: "",
+        userName: "Demo",
+      };
+
+      axios.post(
+        "https://prod-24.japaneast.logic.azure.com:443/workflows/79699722661c42b0a9bcde87b957d50b/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XUIEV1wdk1eyS7etBrZpO4xX45OpSc4XXMrxXb5zxMo",
+        param
+      );  
+
+      alert(message.data.text)
     },
     openChat() {
       this.isChatOpen = true
