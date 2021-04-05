@@ -24,5 +24,5 @@ export default [
     { type: 'system', id: 20, data: { text: 'User changed security key', meta: '04-08-2018 15:57' } },
     { type: 'text', author: `support`, id: 21, data: { text: `What about suggestions?` }, suggestions: ["Looks good!", "It's OK.", "Uhh.. Do I really have to say something?", "This suggestion is way too long for css purpose. Let's make it long... Longer, and more and more.. Never ending."] }
     */
-    { type: 'text', id: 1, data: { text: 'はじめにユーザー名を登録してください' } },
+    { type: 'text', id: 1, data: { text: 'はじめにユーザー名を入力してください。（リロードするとユーザー名再度設定できます）' } },
   ]
