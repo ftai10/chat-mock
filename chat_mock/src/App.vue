@@ -12,8 +12,8 @@
       :on-message-was-sent="onMessageWasSent"
       :open="openChat"
       :participants="participants"
-      :show-close-button="true"
-      :show-launcher="true"
+      :show-close-button="false"
+      :show-launcher="false"
       :show-emoji="false"
       :show-file="false"
       :show-typing-indicator="showTypingIndicator"
@@ -52,77 +52,16 @@
       </template>
       <template v-slot:system-message-body="{message}"> [System]: {{ message.text }} </template>
     </beautiful-chat>
-    <!--
-    <p class="text-center toggle">
-      <a v-if="!isChatOpen" :style="{color: linkColor}" href="#" @click.prevent="openChat()"
-        >Open the chat window</a
-      >
-      <a v-else :style="{color: linkColor}" href="#" @click.prevent="closeChat()"
-        >Close the chat window</a
-      >
-    </p>
-    <p class="text-center colors">
-      <a
-        :style="{background: availableColors.blue.launcher.bg}"
-        href="#"
-        @click.prevent="setColor('blue')"
-        >Blue</a
-      >
-      <a
-        :style="{background: availableColors.red.launcher.bg}"
-        href="#"
-        @click.prevent="setColor('red')"
-        >Red</a
-      >
-      <a
-        :style="{background: availableColors.green.launcher.bg}"
-        href="#"
-        @click.prevent="setColor('green')"
-        >Green</a
-      >
-      <a
-        :style="{background: availableColors.dark.launcher.bg}"
-        href="#"
-        @click.prevent="setColor('dark')"
-        >Dark</a
-      >
-    </p>
-    -->
-    <!--
-    <p class="text-center messageStyling">
-      <label
-        >Message styling enabled?
-        <input checked type="checkbox" @change="messageStylingToggled" />
-      </label>
-      <a href="#" @click.prevent="showStylingInfo()">info</a>
-    </p>
-    -->
-    <!--
-    <TestArea
-      :chosen-color="chosenColor"
-      :colors="colors"
-      :message-styling="messageStyling"
-      :on-message="sendMessage"
-      :on-typing="handleTyping"
-    />
-    <Footer :chosen-color="chosenColor" :colors="colors" />
-    -->
   </div>
 </template>
 
 <script>
 import messageHistory from './messageHistory'
 import chatParticipants from './chatProfiles'
-//import Header from './Header.vue'
-//import Footer from './Footer.vue'
-//import TestArea from './TestArea.vue'
 import availableColors from './colors'
 export default {
   name: 'App',
   components: {
-//    Header
-//    Footer,
-//    TestArea
   },
   data() {
     return {
@@ -171,6 +110,8 @@ export default {
         text.length > 0 ? this.participants[this.participants.length - 1].id : ''
     },
     onMessageWasSent(message) {
+      // ここにAPI　Call登録
+      
       this.messageList = [...this.messageList, Object.assign({}, message, {id: Math.random()})]
     },
     openChat() {

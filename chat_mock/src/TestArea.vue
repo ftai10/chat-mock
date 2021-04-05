@@ -9,7 +9,7 @@
         <p>Test the chat window by sending a message:</p>
         <p v-if="userIsTyping">User is typing...</p>
       </div>
-      <textarea ref="textArea" class="demo-test-area--text" placeholder="Write a test message...." :style="textareaStyle" />
+      <textarea ref="textArea" class="demo-test-area--text" placeholder="input memo...." :style="textareaStyle" />
       <button class="demo-test-area--button" :style="{background: ctaColor, color: colors.sentMessage.text}"> Send Message! </button>
     </form>
     <p class="demo-test-area--info">
