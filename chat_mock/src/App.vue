@@ -119,8 +119,6 @@ export default {
     },
     addSpreadSheet(message)
     {
-      console.log(message)
-
       // パラメータ
       var param = {
         id: "1",
@@ -134,7 +132,6 @@ export default {
         param
       );  
 
-      alert(message.data.text)
     },
     openChat() {
       this.isChatOpen = true
