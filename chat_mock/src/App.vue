@@ -1,6 +1,5 @@
 <template>
   <div :style="{background: backgroundColor}">
-    <Header :chosen-color="chosenColor" :colors="colors" />
     <beautiful-chat
       :always-scroll-to-bottom="alwaysScrollToBottom"
       :close="closeChat"
@@ -79,7 +78,8 @@ export default {
       chosenColor: null,
       alwaysScrollToBottom: true,
       messageStyling: true,
-      userIsTyping: false
+      userIsTyping: false,
+      author: null
     }
   },
   computed: {
@@ -119,12 +119,18 @@ export default {
     },
     addSpreadSheet(message)
     {
+
+      if (this.author == null) {
+        this.author = message.data.text
+        return
+      }
+
       // パラメータ
       var param = {
         id: "1",
         comment: message.data.text,
         tag: "",
-        userName: "Demo",
+        userName: this.author,
       };
 
       axios.post(
