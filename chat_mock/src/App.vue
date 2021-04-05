@@ -110,8 +110,8 @@ export default {
         text.length > 0 ? this.participants[this.participants.length - 1].id : ''
     },
     onMessageWasSent(message) {
-      // ここにAPI　Call登録
-      
+      //ここにAPICall登録
+
       this.messageList = [...this.messageList, Object.assign({}, message, {id: Math.random()})]
     },
     openChat() {
