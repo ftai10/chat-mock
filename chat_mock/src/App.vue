@@ -24,14 +24,7 @@
       @edit="editMessage"
       @remove="removeMessage"
     >
-      <template v-slot:text-message-toolbox="scopedProps">
-        <button
-          v-if="!scopedProps.me && scopedProps.message.type === 'text'"
-          @click.prevent="like(scopedProps.message.id)"
-        >
-          👍
-        </button>
-      </template>
+
       <template v-slot:text-message-body="scopedProps">
         <p class="sc-message--text-content" v-html="scopedProps.messageText"></p>
         <p
