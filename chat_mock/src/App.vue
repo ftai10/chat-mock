@@ -39,7 +39,7 @@
           class="sc-message--edited"
         >
           <template v-if="scopedProps.message.isEdited">✎</template>
-          <template v-if="scopedProps.message.liked">👍</template>
+          <template v-if="scopedProps.message.liked">set</template>
         </p>
       </template>
       <template v-slot:system-message-body="{message}"> [System]: {{ message.text }} </template>
